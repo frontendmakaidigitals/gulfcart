@@ -78,7 +78,7 @@ jobs:
                 name: 'Gulfcart',
                 script: '.next/standalone/server.js',
                 cwd: process.cwd(),
-                env: \${JSON.stringify({NODE_ENV: 'production', PORT: 3001, ...vars}, null, 2)},
+                env: \${JSON.stringify({NODE_ENV: 'production', PORT: 3002, ...vars}, null, 2)},
               }],
             };\`;
             fs.writeFileSync('ecosystem.config.js', config);
