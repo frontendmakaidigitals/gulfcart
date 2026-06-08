@@ -59,14 +59,14 @@ const demoReviews = [
 
 function Reviews() {
   return (
-    <section className="w-full pt-28">
+    <section className="w-full pt-14">
       <div className="container max-w-7xl">
         {/* Header decoration */}
         <div className="mb-16 text-center mx-auto max-w-3xl">
           <span className="text-teal-900 uppercase">
             Why Brands Choose GulfCart
           </span>
-          <h2 className="text-4xl font-semibold font-jakarta tracking-tight text-zinc-950  lg:text-6xl">
+          <h2 className="">
             Built for how <span className="text-primary">GCC commerce</span>{" "}
             actually works.
           </h2>

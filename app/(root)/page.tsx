@@ -1,7 +1,7 @@
 import Footer from "./footer/footer";
 import Header from "./header/header";
 import Pricing from "./sections/pricing";
-import Calculator from "./sections/calculator";
+
 import Reviews from "./sections/reviews";
 import ContactForm from "./sections/contact-form";
 import SupportedCountries from "./sections/supported-countries";
@@ -28,7 +28,6 @@ const Page = () => {
       <SupportedCountries />
       <Reviews />
       <Pricing />
-      <Calculator />
       <ContactForm />
       <Footer />
     </>

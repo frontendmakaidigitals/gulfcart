@@ -98,13 +98,11 @@ const ShopifyProblem = () => {
           <div className="col-span-1 lg:col-span-8 flex flex-col">
             {/* Header Content */}
             <div className="max-w-2xl">
-              <h2 className="text-4xl font-semibold tracking-tight text-zinc-950 sm:text-5xl sm:leading-[1.1]">
+              <h2 className=" sm:leading-[1.1]">
                 Shopify doesn&apos;t solve <br />
                 GCC commerce.
               </h2>
-              <h2 className="text-3xl font-black tracking-tight text-[#1ce2c7] sm:text-5xl mt-1">
-                We do.
-              </h2>
+              <h2 className=" text-primary mt-1">We do.</h2>
               <p className="mt-4 lg:mt-6 text-sm lg:text-base font-medium leading-relaxed text-zinc-500 max-w-lg">
                 Every Shopify brand selling in the Gulf hits the same ceiling.
                 Here&apos;s what&apos;s broken out of the box.

@@ -29,7 +29,7 @@ const Metrics = () => {
     },
   ];
   return (
-    <section className="mt-20">
+    <section id={"why-us"} className="bg-[#F7F7F5] py-18">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto">
           <div className="flex justify-center mb-3 items-center">
@@ -38,9 +38,7 @@ const Metrics = () => {
               <span className="text-teal-800">What you gain</span>
             </span>
           </div>
-          <h2 className="text-4xl lg:text-5xl mb-2 font-semibold">
-            Four metrics that move.
-          </h2>
+          <h2 className=" mb-2">Four metrics that move.</h2>
           <p>
             Every feature in GulfCart connects to a measurable business outcome.
           </p>
@@ -77,17 +75,17 @@ function StatCard({ stat, label, desc, footer, className }: StatCardProps) {
     >
       <div>
         {/* Large Highlighted Stat */}
-        <span className="block text-4xl font-bold tracking-tight text-[#00bfa5] md:text-5xl">
+        <span className="block text-2xl font-bold tracking-tight text-[#00bfa5] md:text-3xl">
           {stat}
         </span>
 
         {/* Card Title/Label */}
-        <h3 className="mt-4 text-xl font-bold tracking-tight text-zinc-900 ">
+        <h3 className="mt-2 font-bold tracking-tight text-zinc-900 ">
           {label}
         </h3>
 
         {/* Main Body Description */}
-        <p className="mt-4 text-sm leading-relaxed text-zinc-600 ">{desc}</p>
+        <p className="mt-2 text-sm leading-relaxed text-zinc-600 ">{desc}</p>
       </div>
 
       {/* Footer Text */}

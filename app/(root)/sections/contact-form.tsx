@@ -31,7 +31,7 @@ const ContactForm = () => {
       <div className="relative mx-auto container max-w-2xl flex flex-col items-center">
         {/* Header Section */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-jakarta  font-semibold tracking-tight text-black sm:text-5xl">
+          <h2 className="">
             Ready to sell across <br /> all of GCC?
           </h2>
           <p className="mt-4 text-sm  lg:text-base font-inter font-medium text-zinc-700 leading-relaxed max-w-lg mx-auto">
@@ -116,7 +116,7 @@ const ContactForm = () => {
           {/* CTA Action Button */}
           <button
             type="submit"
-            className="mt-2 w-full rounded-xl bg-primary py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#43b38e] active:scale-[0.99]"
+            className="mt-2 w-full rounded-xl bg-primary py-4 text-base font-bold text-white shadow-md transition-all hover:bg-primary/80 active:scale-[0.99]"
           >
             Book a 20 min - Demo Call
           </button>

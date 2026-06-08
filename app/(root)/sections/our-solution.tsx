@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 
 const problems = [
   {
@@ -100,7 +100,10 @@ const ConversionProblem = () => {
   }, [rebuild]);
 
   return (
-    <section className="w-full bg-[#F7F7F5] py-16 lg:py-20 text-zinc-900 overflow-hidden">
+    <section
+      id={"gcc-expansion"}
+      className="w-full bg-[#F7F7F5] py-16 lg:py-20 text-zinc-900 overflow-hidden"
+    >
       <div className="container mx-auto ">
         {/* wrapperRef: single coordinate space for both heading + cards */}
         <div ref={wrapperRef} className="relative">
@@ -133,8 +136,8 @@ const ConversionProblem = () => {
               </span>
               <h2
                 ref={headingRef}
-                className="mt-4 text-4xl font-semibold tracking-tight text-zinc-950 lg:text-5xl sm:leading-[1.15]"
-              >
+                className="mt-4 text-zinc-950  sm:leading-[1.15]"
+                >
                 Your growth stack has <br />
                 no{" "}
                 <span className="relative inline-block text-[#1ce2c7]">

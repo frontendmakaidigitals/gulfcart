@@ -63,7 +63,7 @@ const GulfCartBuyerNetwork = () => {
   ];
 
   return (
-    <div className="relative font-sans pt-24 pb-16 antialiased overflow-hidden flex flex-col items-center justify-center">
+    <section id={'buyer-network'} className="relative font-sans pt-24 pb-16 antialiased overflow-hidden flex flex-col items-center justify-center">
       <Image
         src={"/gradient.png"}
         className="absolute h-[60%] -bottom-20"
@@ -80,10 +80,10 @@ const GulfCartBuyerNetwork = () => {
         </span>
 
         {/* Main Heading */}
-        <h1 className="text-4xl lg:text-6xl font-semibold text-center text-gray-900 tracking-tight max-w-3xl leading-tight mb-6">
+        <h2 className="text-center max-w-3xl leading-tight mb-6">
           Every brand makes every other brand{" "}
           <span className="text-primary">stronger.</span>
-        </h1>
+        </h2>
 
         {/* Subtitle description */}
         <p className="text-center text-sm md:text-base text-gray-600 max-w-3xl leading-relaxed mb-12">
@@ -192,7 +192,7 @@ const GulfCartBuyerNetwork = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

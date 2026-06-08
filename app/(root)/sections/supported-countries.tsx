@@ -55,76 +55,76 @@ const SupportedCountries = () => {
       />
 
       <div className="relative container">
-        {/* Header Section */}
-        <div className="mb-12 flex flex-col items-start gap-4 md:flex-row md:items-stretch">
-          {/* Main Giant "6" Layout with left accent bar */}
-          <div className="">
-            {" "}
+        {/* RESPONSIVE LAYOUT MATRIX WRAPPER */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* LEFT COLUMN: Text Content Block */}
+          <div className="col-span-1 lg:col-span-5 flex flex-col justify-center">
+            {/* Main Giant "6" Layout with left accent bar */}
             <div className="border-l-2 pl-6">
-              <div>
-                <div className="flex items-center gap-4  border-zinc-900  dark:border-zinc-100">
-                  <span className="text-[7rem] font-sans font-bold leading-none tracking-tighter text-black">
-                    6
+              <div className="flex items-center gap-4 border-zinc-900 dark:border-zinc-100">
+                <span className="text-[7rem] font-sans font-bold leading-none tracking-tighter text-black">
+                  6
+                </span>
+                <div className="flex flex-col justify-center">
+                  <span className="text-xl font-bold text-zinc-500 uppercase sm:text-xl">
+                    Countries.
                   </span>
-                  <div className="flex flex-col justify-center">
-                    <span className="text-xl font-bold  text-zinc-500 uppercase sm:text-xl">
-                      Countries.
-                    </span>
-                    <span className="text-xl font-bold  text-black uppercase sm:text-3xl">
-                      Currencies.
-                    </span>
-                  </div>
+                  <span className="text-xl font-bold text-black uppercase sm:text-3xl">
+                    Currencies.
+                  </span>
                 </div>
-                <h2 className="mb-6  text-3xl font-bold tracking-wider text-[#065041] uppercase sm:text-4xl lg:text-5xl">
-                  One Integration.
-                </h2>
               </div>
+              <h2 className="mb-6  text-[#065041] uppercase leading-tight">
+                One Integration.
+              </h2>
             </div>
+
             {/* Subdescription text block */}
-            <p className="max-w-3xl mb-14 pl-6 text-sm leading-relaxed text-zinc-800 font-medium">
+            <p className="max-w-xl pl-6 text-sm lg:text-base leading-relaxed text-zinc-800 font-medium mt-4">
               GulfCart covers the entire Gulf Cooperation Council — every
               country, every local currency, every major payment method. From
               one Shopify store.
             </p>
           </div>
-        </div>
 
-        {/* Dynamic Dark Teal Headline */}
+          {/* RIGHT COLUMN: Country Slats Grid (Moves to the right on desktop, flows below on mobile) */}
+          <div className="col-span-1 lg:col-span-7 w-full">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+              {countriesData.map((country, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between rounded-2xl border border-teal-800/15 bg-white/80 p-5 backdrop-blur-sm transition-all duration-200 hover:border-teal-700/30 hover:shadow-sm"
+                >
+                  {/* Left Column inside card: Flag and Text Metrics */}
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src={`/flags/${country.flag}`}
+                      width={50}
+                      height={50}
+                      alt={country.name}
+                      className="object-contain"
+                    />
+                    <div className="flex flex-col">
+                      <h3 className="text-base font-bold text-zinc-900">
+                        {country.name}
+                      </h3>
+                      <span className="text-sm font-medium text-zinc-500">
+                        {country.currency}
+                      </span>
+                      <span className="mt-0.5 text-xs font-medium text-zinc-400">
+                        {country.methods}
+                      </span>
+                    </div>
+                  </div>
 
-        {/* Responsive Grid Matrix for Country Slats */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {countriesData.map((country, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-between rounded-2xl border border-teal-800/15 bg-white/80 p-5 backdrop-blur-sm transition-all duration-200 hover:border-teal-700/30 hover:shadow-sm"
-            >
-              {/* Left Column: Flag and Text Metrics */}
-              <div className="flex items-center gap-4">
-                <Image
-                  src={`/flags/${country.flag}`}
-                  width={50}
-                  height={50}
-                  alt={country.name}
-                />
-                <div className="flex flex-col">
-                  <h3 className="text-base font-bold text-zinc-900">
-                    {country.name}
-                  </h3>
-                  <span className="text-sm font-medium text-zinc-500">
-                    {country.currency}
-                  </span>
-                  <span className="mt-0.5 text-xs font-medium text-zinc-400">
-                    {country.methods}
-                  </span>
+                  {/* Right Column inside card: Checkmark Icon */}
+                  <div className="flex-shrink-0 pl-2 text-emerald-600">
+                    <CheckIcon size={20} weight="bold" />
+                  </div>
                 </div>
-              </div>
-
-              {/* Right Column: Custom Clean Mint/Teal Success Checkmark */}
-              <div className="flex-shrink-0 pl-2">
-                <CheckIcon />
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>

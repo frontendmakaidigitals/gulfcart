@@ -42,7 +42,6 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
 
-
       - name: Copy files to server
         run: |
           rsync -avz --delete \

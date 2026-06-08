@@ -7,24 +7,25 @@ import {
 } from "@phosphor-icons/react";
 import Logo from "../components/Logo";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear(); // Dynamically falls back to 2026 per current timeline
 
   const navigationLinks = [
-    { name: "Platform", href: "#" },
-    { name: "Why Us", href: "#" },
-    { name: "Buyer Network", href: "#" },
-    { name: "GCC Expansion", href: "#" },
-    { name: "Pricing", href: "#" },
+    { label: "Platform", link: "#platform" },
+    { label: "Why us", link: "#why-us" },
+    { label: "Buyer network", link: "#buyer-network" },
+    { label: "GCC expansion", link: "#gcc-expansion" },
+    { label: "Pricing", link: "#pricing" },
   ];
 
   return (
-    <footer className="w-full bg-[#F7F7F5] overflow-hidden pt-10 relative text-zinc-900 ">
+    <footer className="w-full bg-[#F7F7F5] pt-10 lg:pt-10 relative text-zinc-900 ">
       <Image
         src={"/footer-arc-1.png"}
-        alt={""}
-        className="absolute top-2 lg:-top-10 left-1/2 max-w-[95%] lg:max-w-7xl h-auto -translate-x-1/2"
+        alt={"footer arc"}
+        className="absolute top-2 z-10 left-1/2 max-w-[95%] lg:max-w-7xl h-auto -translate-x-1/2"
         width={1900}
         height={100}
       />
@@ -46,7 +47,6 @@ const Footer = () => {
 
           {/* 3. Social Media Icon Channels Matrix */}
           <div className="mt-6 flex items-center gap-5 text-[#0f3d32]">
-            {/* Instagram */}
             <a
               href="#"
               className="hover:opacity-70 transition-opacity"
@@ -83,24 +83,29 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* 4. Creator Development Credits Signature Label */}
-          <span className="mt-8 block font-inter font-semibold  text-zinc-900">
-            Designed & Developed by{" "}
-            <span className="text-[#ff5c5c]   transition-colors cursor-pointer hover:text-[#e04b4b]">
-              SPOK DIGITAL
-            </span>
-          </span>
+          <div className="mt-8 flex text-sm items-center gap-2 font-inter font-semibold  text-zinc-900">
+            <p>Designed & Developed by </p>
+            <Link href={'https://www.spok.digital'}>
+              <Image
+                src={"/logo/spok-black.png"}
+                alt={"spok digital"}
+                className=""
+                width={140}
+                height={140}
+              />
+            </Link>
+          </div>
 
           {/* 5. Navigation Anchors Link Index Line */}
           <nav className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 font-semibold text-[15px]">
             {navigationLinks.map((link, index) => (
-              <a
+              <Link
                 key={index}
-                href={link.href}
+                href={link.link}
                 className="text-zinc-950 font-inter font-medium underline underline-offset-4 decoration-zinc-900/40 hover:decoration-zinc-900 transition-all"
               >
-                {link.name}
-              </a>
+                {link.label}
+              </Link>
             ))}
           </nav>
 

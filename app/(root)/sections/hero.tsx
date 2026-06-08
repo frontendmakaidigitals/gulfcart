@@ -1,8 +1,14 @@
-import React from "react";
+"use client";
+import { useState } from "react";
 import Image from "next/image";
+import CalculatorOverlay from "../components/calculator-overlay";
 const Hero = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section className="relative w-full bg-linear-to-tl min-h-[calc(100vh-110px)] via-transparent from-primary/40 mb-24 pt-12  lg:py-8 lg:pb-16 overflow-hidden flex items-center">
+      {isOpen && (
+        <CalculatorOverlay onClose={() => setIsOpen(false)} isOpen={isOpen} />
+      )}
       <div className="container w-full grid grid-cols-1 lg:grid-cols-12 items-center">
         {/* LEFT COLUMN: Brand Copy and Call To Action */}
         <div className="lg:col-span-7 flex flex-col items-start z-10 text-left">
@@ -13,7 +19,7 @@ const Hero = () => {
           </div>
 
           {/* Premium Core Typography Header */}
-          <h1 className="mt-6 text-4xl font-semibold  text-zinc-900 sm:text-5xl md:text-6xl md:leading-[1.1]">
+          <h1 className="mt-6  md:leading-[1.1]">
             All you need is <br />
             <span className="text-[#00bfa5]">One platform</span> that <br />
             speaks GCC E-commerce
@@ -26,8 +32,11 @@ const Hero = () => {
           </p>
 
           {/* Call-to-action Action Button */}
-          <button className="mt-8 rounded-xl bg-[#00bfa5] px-8 py-4 text-base font-bold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-[#00a38c] active:scale-[0.98]">
-            Book a Demo
+          <button
+            onClick={() => setIsOpen(true)}
+            className="mt-8 rounded-xl bg-primary px-4 py-3 text-base font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-[#00a38c] active:scale-[0.98]"
+          >
+            Calculate the difference now
           </button>
         </div>
 

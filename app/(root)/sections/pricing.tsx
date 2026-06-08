@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
-
+import { useState } from "react";
+import CalculatorOverlay from "../components/calculator-overlay";
 import { cn } from "@/lib/utils";
 import { CheckIcon, CircleIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
 const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   // Exact data structured from image_89f725.png
   const tiers = [
@@ -69,16 +70,24 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="w-full bg-white relative overflow-hidden px-6 pt-32 pb-14 text-zinc-900">
+    <section
+      id={"pricing"}
+      className="w-full bg-white relative overflow-hidden px-6 pt-16 pb-14 text-zinc-900"
+    >
+      {isOpen && (
+        <CalculatorOverlay onClose={() => setIsOpen(false)} isOpen={isOpen} />
+      )}
       <div className="absolute h-120 rounded-full bg-primary/30 top-0 -left-[45%] lg:top-[0%] w-30 lg:-left-[13%] rotate-45" />
       <div className="absolute h-120 rounded-full bg-primary/30 top-[17%] -left-44 lg:top-[4%] w-30 lg:-left-10 rotate-45" />
       <div className="absolute h-120 rounded-full bg-primary/30  lg:top-[29%] top-[7%] w-30 rotate-[40deg] -left-34 lg:-left-28" />
       <div className="mx-auto max-w-7xl flex flex-col items-center">
         {/* Header Section */}
         <div className="text-center max-w-3xl mb-10">
-          <h2 className="text-4xl font-extrabold tracking-tight text-black lg:text-6xl sm:leading-[1.15]">
-            Less than what you pay{" "}
-            <span className="bg-[#95bf47] text-white leading-relaxed px-3">Shopify</span> today
+          <h2 className="sm:leading-[1.15]">
+            Less than what you <br /> pay on{" "}
+            <span className="bg-[#95bf47] text-white leading-relaxed px-3">
+              Shopify
+            </span>{" "}
           </h2>
           <p className="mt-6 text-lg font-medium text-zinc-600 leading-relaxed">
             Shopify charges 2% on every order. We charge less — and{" "}
@@ -219,6 +228,14 @@ const Pricing = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="flex justify-center items-center">
+        <button
+          onClick={() => setIsOpen(true)}
+          className="mt-8 rounded-xl bg-secondary px-4 py-3 text-base font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-secondary/80 active:scale-[0.98]"
+        >
+          Calculate the difference now
+        </button>
       </div>
     </section>
   );
