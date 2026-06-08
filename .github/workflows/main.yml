@@ -62,28 +62,6 @@ jobs:
             rm -rf .next/standalone/.next/static
             cp -r .next/static .next/standalone/.next/
             cp -r public .next/standalone/public
-            node -e "
-            const fs = require('fs');
-            const vars = {};
-            fs.readFileSync('.env', 'utf8').split('\n').forEach(line => {
-              const idx = line.indexOf('=');
-              if (idx > 0) {
-                const key = line.slice(0, idx).trim();
-                const val = line.slice(idx + 1).trim();
-                if (key) vars[key] = val;
-              }
-            });
-            const config = \`module.exports = {
-              apps: [{
-                name: 'Gulfcart',
-                script: '.next/standalone/server.js',
-                cwd: process.cwd(),
-                env: \${JSON.stringify({NODE_ENV: 'production', PORT: 3002, ...vars}, null, 2)},
-              }],
-            };\`;
-            fs.writeFileSync('ecosystem.config.js', config);
-            console.log('ecosystem.config.js written with', Object.keys(vars).length, 'vars');
-            "
             /usr/bin/pm2 restart ecosystem.config.js --update-env || \
             /usr/bin/pm2 start ecosystem.config.js
             /usr/bin/pm2 save
