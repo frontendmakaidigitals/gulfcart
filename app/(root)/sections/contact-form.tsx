@@ -44,7 +44,7 @@ const ContactForm = () => {
 
         {/* Calendly Inline Embed */}
         <div
-          className="calendly-inline-widget w-full md:min-w-5xl  rounded-2xl overflow-hidden"
+          className="calendly-inline-widget w-full md:min-w-5xl rounded-2xl overflow-auto"
           data-url={CALENDLY_URL}
           style={{ height: "680px" }}
         />
