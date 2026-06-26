@@ -85,7 +85,7 @@ const Footer = () => {
 
           <div className="mt-8 flex text-sm items-center gap-2 font-inter font-semibold  text-zinc-900">
             <p>Designed & Developed by </p>
-            <Link href={'https://www.spok.digital'}>
+            <Link href={"https://www.spok.digital"}>
               <Image
                 src={"/logo/spok-black.png"}
                 alt={"spok digital"}
@@ -99,13 +99,21 @@ const Footer = () => {
           {/* 5. Navigation Anchors Link Index Line */}
           <nav className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-3 font-semibold text-[15px]">
             {navigationLinks.map((link, index) => (
-              <Link
+              <button
                 key={index}
-                href={link.link}
+                onClick={() => {
+                  const id = link.link.replace("#", "");
+                  const el = document.getElementById(id);
+                  if (el) {
+                    const top =
+                      el.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top, behavior: "smooth" });
+                  }
+                }}
                 className="text-zinc-950 font-inter font-medium underline underline-offset-4 decoration-zinc-900/40 hover:decoration-zinc-900 transition-all"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </nav>
 
