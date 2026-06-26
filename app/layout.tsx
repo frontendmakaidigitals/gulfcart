@@ -8,6 +8,7 @@ import {
   Inter,
   Krona_One,
 } from "next/font/google";
+import { Suspense } from "react";
 import { FacebookPixel } from "./(root)/components/facebook-pixel";
 import Script from "next/script";
 import "./globals.css";
@@ -97,7 +98,9 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className="min-h-full flex flex-col">
-        <FacebookPixel />
+        <Suspense fallback={null}>
+          <FacebookPixel />
+        </Suspense>
         {children}
       </body>
     </html>
