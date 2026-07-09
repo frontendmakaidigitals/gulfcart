@@ -56,13 +56,21 @@ const MobileMenu = () => {
           <ul className="flex flex-col gap-1">
             {menuLinks.map(({ label, link }, i) => (
               <li key={i}>
-                <Link
-                  href={link}
-                  onClick={() => setIsOpen(false)}
-                  className="block py-4 text-lg font-semibold text-zinc-800 border-b border-zinc-50 hover:text-[#00bfa5] transition-colors"
+                <button
+                  onClick={() => {
+                    const id = link.replace("#", "");
+                    const el = document.getElementById(id);
+                    if (el) {
+                      const top =
+                        el.getBoundingClientRect().top + window.scrollY + 10;
+                      window.scrollTo({ top, behavior: "smooth" });
+                    }
+                    setIsOpen(false);
+                  }}
+                  className="block w-full text-left py-4 text-lg font-semibold text-zinc-800 border-b border-zinc-50 hover:text-[#00bfa5] transition-colors"
                 >
                   {label}
-                </Link>
+                </button>
               </li>
             ))}
           </ul>
@@ -71,7 +79,15 @@ const MobileMenu = () => {
         {/* Drawer Footer Action CTA */}
         <div className="p-6 border-t border-zinc-100">
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              const el = document.getElementById("contact-form");
+              if (el) {
+                const top =
+                  el.getBoundingClientRect().top + window.scrollY + 20;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+              setIsOpen(false);
+            }}
             className="w-full bg-[#0a192f] text-white font-semibold text-center py-4 rounded-xl shadow-md transition-transform active:scale-[0.98]"
           >
             Book a demo

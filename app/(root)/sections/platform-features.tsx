@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import * as Icons from "@phosphor-icons/react";
 
@@ -64,6 +64,12 @@ const featuresData = [
     desc: "When GCC buyers land on a checkout in their local currency with their preferred payment method, your Meta and Google campaigns convert harder. Same spend. More completed orders.",
     categories: ["all", "conversion"],
     iconName: "TrendUp" as const,
+  },
+  {
+    title: "GCC Discount Engine",
+    desc: "SAR-only promotions for Saudi. KWD-locked vouchers for Kuwait. In-checkout nudges that push buyers to add more items. Country-specific discount logic that drives AOV growth.",
+    categories: ["all", "gcc"],
+    iconName: "SealPercentIcon" as const,
   },
 ];
 

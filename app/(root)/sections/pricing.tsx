@@ -68,7 +68,13 @@ const Pricing = () => {
       ],
     },
   ];
-
+  const scrollToContact = () => {
+    const el = document.getElementById("contact-form");
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY + 25;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
   return (
     <section
       id={"pricing"}
@@ -199,6 +205,10 @@ const Pricing = () => {
 
               {/* Action Buttons Frame */}
               <button
+                onClick={() => {
+                  window.fbq?.("track", "Contact");
+                  scrollToContact();
+                }}
                 className={cn(
                   "mt-6 w-full flex justify-center items-center gap-2 rounded-xl py-3.5 text-xs font-bold transition-all duration-200 border tracking-wide",
                   tier.ctaVariant === "solid"
@@ -231,7 +241,13 @@ const Pricing = () => {
       </div>
       <div className="flex justify-center items-center">
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            window.fbq?.("track", "ViewContent", {
+              content_name: "Savings Calculator",
+              content_category: "Calculator",
+            });
+            setIsOpen(true);
+          }}
           className="mt-8 rounded-xl bg-secondary px-4 py-3 text-base font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-secondary/80 active:scale-[0.98]"
         >
           Calculate the difference now

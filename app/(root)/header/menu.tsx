@@ -16,14 +16,23 @@ interface Menuprops {
   link: string;
 }
 const MenuButtons = ({ label, link }: Menuprops) => {
+  const handleClick = () => {
+    const id = link.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY + 15;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  };
+
   return (
     <li>
-      <Link
-        className=" p-2 rounded-md hover:bg-neutral-200/70 transition-all duration-300"
-        href={link}
+      <button
+        onClick={handleClick}
+        className="p-2 rounded-md hover:bg-neutral-200/70 transition-all duration-300"
       >
         {label}
-      </Link>
+      </button>
     </li>
   );
 };

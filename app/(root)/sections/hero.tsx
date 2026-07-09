@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import CalculatorOverlay from "../components/calculator-overlay";
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,10 +34,17 @@ const Hero = () => {
 
           {/* Call-to-action Action Button */}
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              const el = document.getElementById("contact-form");
+              if (el) {
+                const top =
+                  el.getBoundingClientRect().top + window.scrollY + 25;
+                window.scrollTo({ top, behavior: "smooth" });
+              }
+            }}
             className="mt-8 rounded-xl bg-primary px-4 py-3 text-base font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:bg-[#00a38c] active:scale-[0.98]"
           >
-            Calculate the difference now
+            Start a 7 Day free trial
           </button>
         </div>
 
