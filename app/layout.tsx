@@ -13,8 +13,8 @@ import { FacebookPixel } from "./(root)/components/facebook-pixel";
 import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Header from "./(root)/header/header";
-import Footer from "./(root)/footer/footer";
+
+import Image from "next/image";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -90,7 +90,7 @@ export default function RootLayout({
         </Script>
 
         <noscript>
-          <img
+          <Image
             height="1"
             width="1"
             style={{ display: "none" }}
