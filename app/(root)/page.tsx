@@ -16,7 +16,7 @@ import GulfCartBuyerNetwork from "./sections/buyernetwork";
 const Page = () => {
   return (
     <>
-      <Header />
+      
       <Hero />
       <Partners />
       <ShopifyProblem />
@@ -29,7 +29,7 @@ const Page = () => {
       <Reviews />
       <Pricing />
       <ContactForm />
-      <Footer />
+
     </>
   );
 };
