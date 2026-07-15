@@ -68,6 +68,7 @@ jobs:
             cp -r public .next/standalone/public
             
             # 3. Correctly write ecosystem.config.js using a Node script
+            RESEND_KEY="${{ secrets.RESEND_API_KEY }}" node -e "
             node -e "
             const fs = require('fs');
             const config = {
@@ -77,7 +78,9 @@ jobs:
                 cwd: process.cwd(),
                 env: {
                   NODE_ENV: 'production',
-                  PORT: '3002'
+                  PORT: '3002',
+                  RESEND_API_KEY: process.env.RESEND_KEY
+
                 }
               }]
             };
