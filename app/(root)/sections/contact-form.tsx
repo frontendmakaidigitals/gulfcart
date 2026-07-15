@@ -11,9 +11,36 @@ const ContactForm = () => {
     localCurrency: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted: ", formData);
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        brandName: "",
+        storeUrl: "",
+        monthlyRevenue: "",
+        localCurrency: "",
+      });
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+    }
   };
 
   return (
@@ -115,10 +142,22 @@ const ContactForm = () => {
           {/* CTA Action Button */}
           <button
             type="submit"
-            className="mt-2 w-full rounded-xl bg-primary py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#43b38e] active:scale-[0.99]"
+            disabled={status === "loading"}
+            className="mt-2 w-full rounded-xl bg-primary py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#43b38e] active:scale-[0.99] disabled:opacity-60"
           >
-            Book a 20 min - Demo Call
+            {status === "loading" ? "Sending..." : "Book a 20 min - Demo Call"}
           </button>
+
+          {status === "success" && (
+            <p className="text-center text-sm text-green-600">
+              Thanks! We&apos;ll reach out within 24 hours.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-center text-sm text-red-600">
+              Something went wrong. Please try again.
+            </p>
+          )}
         </form>
 
         {/* Footer Subtext Note */}
