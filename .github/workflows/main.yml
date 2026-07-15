@@ -69,7 +69,6 @@ jobs:
             
             # 3. Correctly write ecosystem.config.js using a Node script
             RESEND_KEY="${{ secrets.RESEND_API_KEY }}" node -e "
-            node -e "
             const fs = require('fs');
             const config = {
               apps: [{
