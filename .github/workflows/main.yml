@@ -55,19 +55,24 @@ jobs:
       - name: Install & Restart on server
         run: |
           ssh -i ~/.ssh/id_ed25519 -p 22 -o StrictHostKeyChecking=no \
-          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
-            set -e # Exit immediately if a command exits with a non-zero status
+          ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
+            set -e
             cd ${{ secrets.APP_PATH }}
-            
-            # 1. Install production dependencies
+
+            # 1. Write env file (loaded automatically by Next's standalone server.js)
+            cat > .next/standalone/.env.production << 'ENVEOF'
+            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+            ENVEOF
+
+            # 2. Install production dependencies
             npm ci --omit=dev --ignore-scripts
-            
-            # 2. Setup Next.js standalone assets
+
+            # 3. Setup Next.js standalone assets
             rm -rf .next/standalone/.next/static
             cp -r .next/static .next/standalone/.next/
             cp -r public .next/standalone/public
-            
-            # 3. Correctly write ecosystem.config.js using a Node script
+
+            # 4. Correctly write ecosystem.config.js using a Node script
             node -e "
             const fs = require('fs');
             const config = {
@@ -84,8 +89,8 @@ jobs:
             fs.writeFileSync('ecosystem.config.js', 'module.exports = ' + JSON.stringify(config, null, 2));
             console.log('ecosystem.config.js written successfully.');
             "
-            
-            # 4. Restart or Start the app via PM2
+
+            # 5. Restart or Start the app via PM2
             pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
             pm2 save
           EOF
