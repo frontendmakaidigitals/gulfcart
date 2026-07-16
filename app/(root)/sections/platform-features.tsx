@@ -42,12 +42,6 @@ const featuresData = [
     iconName: "Globe" as const,
   },
   {
-    title: "GCC Discount Engine",
-    desc: "SAR-only promotions for Saudi. KWD-locked vouchers for Kuwait. In-checkout nudges that push buyers to add more items. Country-specific discount logic that drives AOV growth.",
-    categories: ["all", "conversion"],
-    iconName: "Tag" as const,
-  },
-  {
     title: "Buyer Network — One-Click Checkout",
     desc: "GCC shoppers who've bought from any GulfCart brand get their address and payment pre-filled at every other GulfCart checkout. The network grows with every brand that joins.",
     categories: ["all", "conversion"],
@@ -68,6 +62,12 @@ const featuresData = [
   {
     title: "GCC Discount Engine",
     desc: "SAR-only promotions for Saudi. KWD-locked vouchers for Kuwait. In-checkout nudges that push buyers to add more items. Country-specific discount logic that drives AOV growth.",
+    categories: ["all", "gcc"],
+    iconName: "SealPercentIcon" as const,
+  },
+  {
+    title: "Secure OTP Validation",
+    desc: "Verify genuine customers in seconds, minimize fraudulent purchases, improve delivery success rates, and create a seamless checkout experience that's secure and hassle-free.",
     categories: ["all", "gcc"],
     iconName: "SealPercentIcon" as const,
   },

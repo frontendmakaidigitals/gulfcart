@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
     await resend.emails.send({
       from: "Gulfcart <info.spok.digital>", 
-      to: ["mystyle.suk"],
+      to: ["mystylesouk@gmail.com"],
       subject: `New Demo Request: ${brandName}`,
       html: `
         <h2>New Demo Call Request</h2>
