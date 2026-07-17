@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "Gulfcart <info.spok.digital>", 
+      from: "Gulfcart <info@spok.digital>", 
       to: ["mystylesouk@gmail.com"],
       subject: `New Demo Request: ${brandName}`,
       html: `
