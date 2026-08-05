@@ -55,23 +55,6 @@ const Footer = () => {
               <InstagramLogoIcon className="size-8" />
             </a>
 
-            {/* LinkedIn */}
-            <a
-              href="#"
-              className="hover:opacity-70 transition-opacity"
-              aria-label="LinkedIn"
-            >
-              <LinkedinLogoIcon className="size-8" />
-            </a>
-
-            {/* X (formerly Twitter) */}
-            <a
-              href="#"
-              className="hover:opacity-70 transition-opacity"
-              aria-label="X (Twitter)"
-            >
-              <XLogoIcon className="size-8" />
-            </a>
 
             {/* Email Support Contact Channel */}
             <a

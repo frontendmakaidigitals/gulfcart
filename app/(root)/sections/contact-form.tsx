@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { ConfettiButton } from "@/components/ui/confetti";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -11,8 +12,8 @@ const ContactForm = () => {
     localCurrency: "",
   });
 
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
+  const [status, setStatus] = useState
+    <"idle" | "loading" | "success" | "error"
   >("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -44,7 +45,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="relative w-full bg-[#F3F8F6] pt-20 pb-32 text-zinc-900 overflow-hidden">
+    <section id={'contact-form'} className="relative w-full bg-[#F3F8F6] pt-20 pb-32 text-zinc-900 overflow-hidden">
       {/* Background Subtle Dot Grid Matrix */}
       <div
         className="absolute inset-0 opacity-[0.5] pointer-events-none"
@@ -104,9 +105,12 @@ const ContactForm = () => {
               className="w-full rounded-xl border border-zinc-300 bg-white px-4 py-3.5 text-base placeholder-zinc-600 outline-none focus:border-[#00bfa5] transition-colors shadow-sm"
               required
             />
+            {/* CHANGED — type="text" instead of type="url", so a bare
+                domain like "mystore.com" is accepted without needing a
+                scheme (browsers enforce http(s):// on type="url" inputs). */}
             <input
-              type="url"
-              placeholder="Shopify store URL"
+              type="text"
+              placeholder="Shopify store URL (e.g. mystore.com)"
               value={formData.storeUrl}
               onChange={(e) =>
                 setFormData({ ...formData, storeUrl: e.target.value })
@@ -139,20 +143,17 @@ const ContactForm = () => {
             required
           />
 
-          {/* CTA Action Button */}
-          <button
+          {/* NEW — ConfettiButton as the submit button. It fires its own
+              confetti burst on click while still triggering the form's
+              onSubmit (since it's type="submit" inside the form). */}
+          <ConfettiButton
             type="submit"
             disabled={status === "loading"}
-            className="mt-2 w-full rounded-xl bg-primary py-4 text-base font-bold text-white shadow-md transition-all hover:bg-[#43b38e] active:scale-[0.99] disabled:opacity-60"
+            className="mt-2 w-full rounded-xl bg-primary h-12 text-base font-bold text-white shadow-md transition-all hover:bg-primary/80 active:scale-[0.99] disabled:opacity-60"
           >
             {status === "loading" ? "Sending..." : "Book a 20 min - Demo Call"}
-          </button>
+          </ConfettiButton>
 
-          {status === "success" && (
-            <p className="text-center text-sm text-green-600">
-              Thanks! We&apos;ll reach out within 24 hours.
-            </p>
-          )}
           {status === "error" && (
             <p className="text-center text-sm text-red-600">
               Something went wrong. Please try again.
@@ -165,6 +166,39 @@ const ContactForm = () => {
           No credit card required. Our team will reach out within 24 hours.
         </span>
       </div>
+
+      {/* NEW — Thank you popup, shown on successful submission */}
+      {status === "success" && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4"
+          onClick={() => setStatus("idle")}
+        >
+          <div
+            className="relative w-full max-w-sm rounded-2xl bg-white p-8 text-center shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setStatus("idle")}
+              aria-label="Close"
+              className="absolute top-3 right-3 text-zinc-400 hover:text-zinc-600 text-lg"
+            >
+              ×
+            </button>
+            <h3 className="text-2xl font-jakarta font-semibold text-black">
+              Thank you! 🎉
+            </h3>
+            <p className="mt-2 text-sm font-inter text-zinc-600">
+              We&apos;ll reach out within 24 hours to schedule your demo call.
+            </p>
+            <button
+              onClick={() => setStatus("idle")}
+              className="mt-6 w-full rounded-xl bg-primary py-3 text-sm font-semibold text-white transition-all hover:bg-[#43b38e]"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

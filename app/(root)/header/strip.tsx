@@ -5,7 +5,7 @@ const Strip = () => {
   return (
     <div className="bg-black">
       <p className="text-center text-xs py-3 text-background">
-        Start a free 7-day trial.{" "}
+        Get started with just a few steps.{" "}
         <button
           onClick={() => {
             const el = document.getElementById("contact-form");
