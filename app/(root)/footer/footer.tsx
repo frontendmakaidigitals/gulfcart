@@ -48,7 +48,7 @@ const Footer = () => {
           {/* 3. Social Media Icon Channels Matrix */}
           <div className="mt-6 flex items-center gap-5 text-[#0f3d32]">
             <a
-              href="#"
+              href="https://www.instagram.com/gulf_cart.ae?igsh=bnB2cGI0N3E1aDUz"
               className="hover:opacity-70 transition-opacity"
               aria-label="Instagram"
             >
@@ -58,7 +58,7 @@ const Footer = () => {
 
             {/* Email Support Contact Channel */}
             <a
-              href="mailto:support@gulfcart.com"
+              href="mailto:support@gulfcart.ae"
               className="hover:opacity-70 transition-opacity"
               aria-label="Email Support"
             >
