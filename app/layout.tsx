@@ -90,6 +90,9 @@ export default function RootLayout({
           `}
         </Script>
 
+        <meta name="google-site-verification" content="I8eKilxAfbdVS9RZWiThEdy1AKj_XDXJ5EdMdRAzfCo" />
+
+
         <noscript>
           <Image
             height="1"
