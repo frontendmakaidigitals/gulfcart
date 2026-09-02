@@ -1,37 +1,39 @@
-import Footer from "./footer/footer";
-import Header from "./header/header";
-import Pricing from "./sections/pricing";
+import TopBar from './header/TopBar';
+import Nav from './header/Nav';
+import Hero from './sections/Hero';
+import StatBand from './sections/StatBand';
+import Currency from './sections/Currency';
+import Leak from './sections/Leak';
+import Levers from './sections/Levers';
+import CheckoutShowcase from './sections/CheckoutShowcase';
+import BuyerNetwork from './sections/BuyerNetwork';
+import Fit from './sections/Fit';
+import Dashboard from './sections/Dashboard';
+import Testimonials from './sections/Testimonials';
+import Pricing from './sections/Pricing';
+import Faq from './sections/Faq';
+import FinalCta from './sections/FinalCta';
+import Footer from './footer/Footer';
 
-import Reviews from "./sections/reviews";
-import ContactForm from "./sections/contact-form";
-import SupportedCountries from "./sections/supported-countries";
-import Stats from "./sections/stats";
-import PlatformFeatures from "./sections/platform-features";
-import Metrics from "./sections/metrics";
-import Partners from "./sections/partners";
-import OurSolution from "./sections/our-solution";
-import Hero from "./sections/hero";
-import ShopifyProblem from "./sections/shopify-problem";
-import GulfCartBuyerNetwork from "./sections/buyernetwork";
-const Page = () => {
+export default function Page() {
   return (
-    <>
-      
+    <main style={{ background: '#08090C', overflowX: 'hidden' }}>
+      <TopBar />
+      <Nav />
       <Hero />
-      <Partners />
-      <ShopifyProblem />
-      <OurSolution />
-      <PlatformFeatures />
-      <Metrics />
-      <Stats />
-      <GulfCartBuyerNetwork />
-      <SupportedCountries />
-      <Reviews />
+      <StatBand />
+      <Currency />
+      <Leak />
+      <Levers />
+      <CheckoutShowcase />
+      <BuyerNetwork />
+      <Fit />
+      <Dashboard />
+      <Testimonials />
       <Pricing />
-      <ContactForm />
-
-    </>
+      <Faq />
+      <FinalCta />
+      <Footer />
+    </main>
   );
-};
-
-export default Page;
+}
