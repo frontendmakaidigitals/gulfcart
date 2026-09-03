@@ -1,43 +1,57 @@
-import { c, font, shell } from '@/lib/tokens';
-import Logo from '../components/Logo';
+'use client';
+
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import Logo from "../components/Logo";
 
 const links = [
   { href: '#currency', label: 'Local currency' },
   { href: '#leak', label: 'The leak' },
-  { href: '#levers', label: 'What\u2019s inside' },
+  { href: '#levers', label: "What's inside" },
   { href: '#network', label: 'Buyer network' },
   { href: '#fit', label: 'Is it for us?' },
   { href: '#pricing', label: 'Pricing' },
 ];
 
 export default function Nav() {
-  return (
-    <div
-      className="sticky top-0 z-[60] backdrop-blur-[16px] border-b bg-background border-white/[0.07] "
-    >
-      <div
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
-        className="flex container items-center gap-[34px] py-4"
-      >
-        <Logo />
-        <nav
-          className="flex flex-1 gap-6 text-sm font-medium"
-          style={{ color: c.dim }}
-        >
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    if (!isHome) return; // let Link handle navigation + native hash scroll on load
+    e.preventDefault();
+    const el = document.querySelector(hash);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      history.pushState(null, '', hash);
+    }
+  };
+
+  return (
+    <div className="sticky top-0 z-60 border-b border-white/[.07] bg-ink/85 backdrop-blur-lg">
+      <div className="shell flex items-center gap-8 px-[26px] py-3.5">
+        <Link href={'/'}>
+          <Logo /></Link>
+        <nav className="hidden flex-1 gap-6 text-sm font-medium text-dim lg:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-inherit">
+            <Link
+              key={l.href}
+              href={isHome ? l.href : `/${l.href}`}
+              onClick={(e) => handleClick(e, l.href)}
+              className="text-inherit hover:text-fg"
+            >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
-        <a
-
-          className="gc-btn-primary rounded-[10px] px-5 py-[10px] text-sm font-bold"
-          href="#form"
-          style={{ background: c.accent, color: c.bg }}
-        >
-          Book a demo
-        </a>
+        {pathname !== '/book-a-demo' && (
+          <Link
+            href="/book-a-demo"
+            className="ml-auto rounded-[10px] bg-accent px-5 py-2.5 text-sm font-bold text-ink hover:bg-accent-light lg:ml-0"
+          >
+            Book a demo
+          </Link>
+        )}
       </div>
     </div>
   );

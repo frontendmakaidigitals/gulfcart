@@ -6,14 +6,38 @@ export const heroBullets = [
 ];
 
 export const logos = [
-  'BUSINESS MANSION',
-  'MAX',
-  'NOIR PERFUMES',
-  'NOVA',
-  'OPTO',
-  'PERFUME OASIS',
-  'RUHAYAH',
-  'TEESER',
+  {
+    name: "Business Mansion",
+    img: "/BM.png",
+  },
+  {
+    name: "Max",
+    img: "/max.png",
+  },
+  {
+    name: "Noir Perfumes",
+    img: "/noir.png",
+  },
+  {
+    name: "Nova",
+    img: "/nova.png",
+  },
+  {
+    name: "Opto",
+    img: "/opto.png",
+  },
+  {
+    name: "Perfume Oasis",
+    img: "/perfume oasis.png",
+  },
+  {
+    name: "Ruhayah",
+    img: "/ruhayah.png",
+  },
+  {
+    name: "Teeser",
+    img: "/teeser.png",
+  },
 ];
 
 export const heroStats = [
@@ -34,31 +58,37 @@ export const markets = [
     code: 'AED',
     name: 'UAE',
     methods: 'Tabby · Tamara · Apple Pay · COD',
+    flag: 'uae.png'
   },
   {
     code: 'SAR',
     name: 'Saudi Arabia',
     methods: 'Tabby · Tamara · Apple Pay · COD',
+    flag: 'saudi.png'
   },
   {
     code: 'KWD',
     name: 'Kuwait',
     methods: 'Tabby · Cards · COD',
+    flag: 'kuwait.png'
   },
   {
     code: 'QAR',
     name: 'Qatar',
     methods: 'Tamara · Cards · COD',
+    flag: 'qatar.png'
   },
   {
     code: 'BHD',
     name: 'Bahrain',
     methods: 'Tamara · Cards · COD',
+    flag: 'bahrain.png'
   },
   {
     code: 'OMR',
     name: 'Oman',
     methods: 'Cards · COD',
+    flag: 'oman.png'
   },
 ];
 

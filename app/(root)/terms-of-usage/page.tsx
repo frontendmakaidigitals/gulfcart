@@ -109,7 +109,7 @@ export default function TermsOfUsePage() {
     <div
       className={`${display.variable} ${body.variable} ${mono.variable} min-h-screen bg-[#FAF8F4] font-[family-name:var(--font-body)] text-slate-800`}
     >
-   
+
 
       {/* hero */}
       <section className="border-b  py-16">
@@ -161,10 +161,9 @@ export default function TermsOfUsePage() {
                   onClick={() => setTocOpen(false)}
                   className={`
                     -ml-px flex gap-3 border-l py-1.5 pl-4 text-[13px] leading-snug transition-colors
-                    ${
-                      active
-                        ? "border-teal-600 font-medium text-slate-900"
-                        : "border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-800"
+                    ${active
+                      ? "border-teal-600 font-medium text-slate-900"
+                      : "border-transparent text-slate-500 hover:border-slate-300 hover:text-slate-800"
                     }
                   `}
                 >
@@ -537,7 +536,7 @@ export default function TermsOfUsePage() {
                 , save that either party may seek urgent injunctive relief
                 before any court of competent jurisdiction.
               </p>
-              
+
             </Section>
 
             <Section id="changes" n="16" title="Changes to These Terms">

@@ -7,7 +7,7 @@ const Logo = ({ className }: { className?: string }) => {
       height={100}
       src={"/logo/gulfcart-logo.png"}
       alt={"gulfcart logo"}
-      className={cn(className)}
+      className={cn(className, 'w-34')}
     />
   );
 };

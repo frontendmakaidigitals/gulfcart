@@ -1,132 +1,39 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-}
+/* Enables `dark:` variant utilities keyed off data-theme instead of OS preference, if you ever want them */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  /* Base */
-  --background: #FAF9F6;
-  --color: #0D0D0D;
-
-  /* Main background - intentionally dark */
-  --bg: #08090C;
-
-  /* Light mode surfaces */
-  --bg-alt: #F5F4F1;
-  --surface: #FFFFFF;
-
-  /* Borders */
-  --line: rgba(13, 13, 13, 0.12);
-  --line-soft: rgba(13, 13, 13, 0.07);
-
-  /* Text */
-  --text: #0D0D0D;
-  --text-soft: #3F4147;
-  --muted: #666A73;
-  --dim: #7A7E87;
-  --faint: #92959C;
-  --fainter: #A9ABB0;
-  --ghost: #BEC0C5;
-
-  /* Accent */
-  --accent-rgb: 22, 104, 199;
-  --accent: #1668C7;
-  --accent-light: #4EA8FF;
-  --accent-deep: #0F4F9E;
-
-  /* Status */
-  --good: #16A34A;
-  --bad: #DC4C3E;
-
-  /* Fonts */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Manrope', system-ui, sans-serif;
-
-  /* Layout */
-  --shell-max-width: 1200px;
-}
-
-
-@theme inline {
-  /* Colors */
-  --color-background: var(--background);
-  --color-foreground: var(--color);
-
-  --color-bg: var(--bg);
-  --color-bg-alt: var(--bg-alt);
-
+@theme {
+  --color-ink: var(--ink);
+  --color-ink-alt: var(--ink-alt);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
-  --color-input: var(--input);
+  --color-surface-hover: var(--surface-hover);
+  --color-tile-hover: var(--tile-hover);
 
-  --color-line: var(--line);
-  --color-line-soft: var(--line-soft);
-
-  --color-text: var(--text);
-  --color-text-soft: var(--text-soft);
-
+  --color-fg: var(--fg);
+  --color-fg-soft: var(--fg-soft);
   --color-muted: var(--muted);
   --color-dim: var(--dim);
   --color-faint: var(--faint);
   --color-fainter: var(--fainter);
   --color-ghost: var(--ghost);
+  --color-outline: var(--outline);
 
-  /* Accent */
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
   --color-accent-deep: var(--accent-deep);
-
-  /* Status */
   --color-good: var(--good);
   --color-bad: var(--bad);
 
-  /* Fonts */
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: Manrope, system-ui, sans-serif;
 
-  /* Layout */
-  --container-shell: var(--shell-max-width);
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-blip: blip 2.2s ease-in-out infinite;
 }
 
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--color);
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--accent-light);
-}
-
-input,
-select,
-textarea,
-button {
-  font-family: inherit;
-}
-
-::selection {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-::placeholder {
-  color: var(--ghost);
-}
-
-@keyframes gcSlide {
+@keyframes marquee {
   from {
     transform: translateX(0);
   }
@@ -136,7 +43,7 @@ button {
   }
 }
 
-@keyframes gcDot {
+@keyframes blip {
 
   0%,
   100% {
@@ -148,80 +55,135 @@ button {
   }
 }
 
-.gc-marquee {
-  display: flex;
-  gap: 44px;
-  width: max-content;
-  align-items: center;
-  animation: gcSlide 30s linear infinite;
-}
+@layer base {
 
-.gc-dot {
-  animation: gcDot 2.2s ease-in-out infinite;
-}
+  /* Dark theme (default) */
+  :root,
+  [data-theme="dark"] {
+    color-scheme: dark;
 
-/* hover states that inline styles can't express */
-.gc-btn-primary:hover {
-  background: var(--accent-light) !important;
-}
+    --ink: #08090C;
+    --ink-alt: #0B0D12;
+    --surface: #0D0F14;
+    --surface-raised: #0F1218;
+    --surface-hover: #101319;
+    --tile-hover: #111520;
 
-.gc-btn-ghost:hover {
-  border-color: rgba(var(--accent-rgb), .5) !important;
-  background: rgba(var(--accent-rgb), .08);
-}
+    --fg: #EDEFF3;
+    --fg-soft: #C3C9D6;
+    --muted: #9AA2B2;
+    --dim: #8A92A3;
+    --faint: #7C8493;
+    --fainter: #6B7280;
+    --ghost: #5D6472;
+    --outline: #565D6C;
 
-.gc-card:hover {
-  border-color: rgba(var(--accent-rgb), .35) !important;
-  background: #101319 !important;
-}
-
-.gc-tile:hover {
-  background: #111520 !important;
-}
-
-.gc-field:focus {
-  border-color: var(--accent) !important;
-}
-
-@media (max-width: 1080px) {
-  .gc-split {
-    grid-template-columns: 1fr !important;
+    --accent: #4EA8FF;
+    --accent-light: #8FCBFF;
+    --accent-deep: #1668C7;
+    --good: #4ADE80;
+    --bad: #FF7A6B;
   }
 
-  .gc-grid-3 {
-    grid-template-columns: repeat(2, 1fr) !important;
+  /* Light theme */
+  [data-theme="light"] {
+    color-scheme: light;
+
+    --ink: #FFFFFF;
+    --ink-alt: #F3F5F8;
+    --surface: #f9f9f9;
+    --surface-raised: #FFFFFF;
+    --surface-hover: #F1F3F7;
+    --tile-hover: #EAEDF2;
+
+    --fg: #0B0D12;
+    --fg-soft: #333844;
+    --muted: #5B6270;
+    --dim: #6B7280;
+    --faint: #7C8493;
+    --fainter: #8A92A3;
+    --ghost: #9AA2B2;
+    --outline: #C7CCD6;
+
+    --accent: #1668C7;
+    --accent-light: #4EA8FF;
+    --accent-deep: #0D47A1;
+    --good: #16A34A;
+    --bad: #DC2626;
   }
 
-  .gc-grid-4 {
-    grid-template-columns: repeat(2, 1fr) !important;
+  /* Respect OS preference only if the user hasn't explicitly picked a theme */
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme]) {
+      color-scheme: light;
+
+      --ink: #FFFFFF;
+      --ink-alt: #F3F5F8;
+      --surface: #FFFFFF;
+      --surface-raised: #FFFFFF;
+      --surface-hover: #F1F3F7;
+      --tile-hover: #EAEDF2;
+
+      --fg: #0B0D12;
+      --fg-soft: #333844;
+      --muted: #5B6270;
+      --dim: #6B7280;
+      --faint: #7C8493;
+      --fainter: #8A92A3;
+      --ghost: #9AA2B2;
+      --outline: #C7CCD6;
+
+      --accent: #1668C7;
+      --accent-light: #4EA8FF;
+      --accent-deep: #0D47A1;
+      --good: #16A34A;
+      --bad: #DC2626;
+    }
   }
 
-  .gc-sticky {
-    position: static !important;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-fg font-body antialiased transition-colors duration-200;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-bold;
+  }
+
+  a {
+    @apply text-accent no-underline;
+  }
+
+  a:hover {
+    @apply text-accent-light;
+  }
+
+  ::selection {
+    @apply bg-accent text-ink;
+  }
+
+  ::placeholder {
+    @apply text-ghost;
   }
 }
 
-@media (max-width: 720px) {
-
-  .gc-grid-2,
-  .gc-grid-3,
-  .gc-grid-4 {
-    grid-template-columns: 1fr !important;
-  }
-
-  .gc-h1 {
-    font-size: 40px !important;
-  }
-
-  .gc-h2 {
-    font-size: 32px !important;
-  }
+@utility shell {
+  @apply mx-auto w-full max-w-[1200px];
 }
 
+@utility field {
+  @apply w-full rounded-[10px] border border-outline/40 bg-ink-alt px-3.5 py-3 text-[14.5px] text-fg outline-none focus:border-accent;
+}
 
-@utility container {
-  margin-inline: auto;
-  padding-inline: 1.1rem;
-  max-width: 1430px;
+@utility eyebrow {
+  @apply text-[11.5px] font-bold tracking-[.18em] text-accent;
+}
 
+@utility field {
+  @apply w-full rounded-[10px] border border-white/10 bg-ink-alt px-3.5 py-3 text-[14.5px] text-fg outline-none focus:border-accent;
 }

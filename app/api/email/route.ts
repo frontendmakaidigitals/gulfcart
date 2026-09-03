@@ -1,29 +1,27 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-
 export async function POST(req: Request) {
-    const resend = new Resend(process.env.RESEND_API_KEY);
+  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const body = await req.json();
-    const { name, email, brandName, storeUrl, monthlyRevenue, localCurrency } = body;
+    const { name, email, phone, slot, mode } = body;
 
-    if (!name || !email || !brandName || !storeUrl) {
+    if (!name || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
     await resend.emails.send({
-      from: "Gulfcart <info@spok.digital>", 
+      from: "Gulfcart <info@spok.digital>",
       to: ["mystylesouk@gmail.com"],
-      subject: `New Demo Request: ${brandName}`,
+      subject: `New Call-Back Request: ${name}`,
       html: `
-        <h2>New Demo Call Request</h2>
+        <h2>New Call-Back Request</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Brand:</strong> ${brandName}</p>
-        <p><strong>Store URL:</strong> ${storeUrl}</p>
-        <p><strong>Monthly Revenue:</strong> ${monthlyRevenue}</p>
-        <p><strong>Local Currency:</strong> ${localCurrency}</p>
+        <p><strong>WhatsApp:</strong> ${phone}</p>
+        <p><strong>Preferred time:</strong> ${slot ?? "Not specified"}</p>
+        <p><strong>Mode:</strong> ${mode ?? "call"}</p>
       `,
     });
 
