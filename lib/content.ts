@@ -384,3 +384,39 @@ export const goalChips = [
   'Ad spend ROI',
   'New markets',
 ];
+export type FunnelBand = {
+  value: string;       // e.g. "1,000", "620"
+  label: string;       // e.g. "Landed on checkout"
+  width: string;        // e.g. "100%", "82%"
+  padX: string;         // horizontal padding inside the band, e.g. "18px"
+  fill: string;         // tailwind bg color class fragment, e.g. "bg-accent/10"
+  stroke: string;       // border color class, e.g. "border-accent/30"
+  numColor: string;     // text color class for the number
+  clip?: string;        // optional clip-path if you want the tapered funnel shape
+  dropDisplay: boolean; // whether to show the drop-off row beneath this band
+  dropColor: string;    // text color class for the drop label
+  drop?: string;        // e.g. "12% drop"
+};
+
+export const funnelBefore: FunnelBand[] = [
+  { value: '1,000', label: 'Landed on checkout', width: '100%', padX: 'px-5', fill: 'bg-bad/10', stroke: 'border-bad/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-bad', drop: '18% drop' },
+  { value: '820', label: 'Started filling fields', width: '86%', padX: 'px-5', fill: 'bg-bad/10', stroke: 'border-bad/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-bad', drop: '22% drop' },
+  { value: '640', label: 'Reached payment step', width: '70%', padX: 'px-4', fill: 'bg-bad/10', stroke: 'border-bad/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-bad', drop: '31% drop' },
+  { value: '440', label: 'Chose a payment method', width: '55%', padX: 'px-4', fill: 'bg-bad/10', stroke: 'border-bad/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-bad', drop: '39% drop' },
+  { value: '268', label: 'Completed order', width: '38%', padX: 'px-3', fill: 'bg-bad/15', stroke: 'border-bad/40', numColor: 'text-bad', dropDisplay: false, dropColor: '' },
+];
+
+export const funnelAfter: FunnelBand[] = [
+  { value: '1,000', label: 'Landed on checkout', width: '100%', padX: 'px-5', fill: 'bg-accent/10', stroke: 'border-accent/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-good', drop: '6% drop' },
+  { value: '940', label: 'Started filling fields', width: '92%', padX: 'px-5', fill: 'bg-accent/10', stroke: 'border-accent/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-good', drop: '9% drop' },
+  { value: '855', label: 'Reached payment step', width: '82%', padX: 'px-4', fill: 'bg-accent/10', stroke: 'border-accent/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-good', drop: '12% drop' },
+  { value: '752', label: 'Chose a payment method', width: '68%', padX: 'px-4', fill: 'bg-accent/10', stroke: 'border-accent/30', numColor: 'text-fg', dropDisplay: true, dropColor: 'text-good', drop: '14% drop' },
+  { value: '410', label: 'Completed order', width: '52%', padX: 'px-3', fill: 'bg-good/15', stroke: 'border-good/40', numColor: 'text-good', dropDisplay: false, dropColor: '' },
+];
+
+export const funnelReasons: string[] = [
+  'One-tap checkout for returning buyers — no retyping address or card.',
+  'Local payment methods shown first, ranked by what actually converts.',
+  'Verified COD cuts Return to Origin risk before the order ships.',
+  'Country-aware tax, currency and delivery estimates shown upfront.',
+];

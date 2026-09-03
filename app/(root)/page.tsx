@@ -25,12 +25,9 @@ export default function Page() {
       <CheckoutShowcase />
       <BuyerNetwork />
       <Fit />
-      
-      <Testimonials />
       <Pricing />
       <Faq />
       <FinalCta />
-
     </main>
   );
 }

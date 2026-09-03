@@ -1,4 +1,11 @@
 import { levers } from '@/lib/content';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel';
 
 export default function Levers() {
   return (
@@ -12,22 +19,41 @@ export default function Levers() {
         </p>
       </div>
 
-      <div className="mt-11 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Mobile: carousel */}
+      <Carousel opts={{ align: 'start' }} className="mt-11 w-full sm:hidden">
+        <CarouselContent className="-ml-4">
+          {levers.map((l) => (
+            <CarouselItem key={l.t} className="basis-[85%] pl-4">
+              <LeverCard l={l} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="mt-6 flex items-center justify-end gap-2">
+          <CarouselPrevious className="static text-accent/40 rounded-lg translate-x-0 translate-y-0" />
+          <CarouselNext className="static translate-x-0 text-accent/40 rounded-lg translate-y-0" />
+        </div>
+      </Carousel>
+
+      {/* Tablet+: grid */}
+      <div className="mt-11 hidden gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
         {levers.map((l) => (
-          <div
-            key={l.t}
-            className="flex flex-col gap-3.5 rounded-[18px] border border-white/8 bg-surface p-7 transition-colors hover:border-accent/35 hover:bg-surface-hover"
-          >
-            <div className="flex items-start justify-between gap-3.5">
-              <div className="pt-[5px] text-[10.5px] font-bold tracking-[.14em] text-accent">{l.tag}</div>
-              <div className="font-display text-2xl font-bold tracking-[-.03em] text-fg">{l.metric}</div>
-            </div>
-            <h3 className="text-[19px] leading-tight tracking-[-.02em]">{l.t}</h3>
-            <p className="flex-1 text-[14.5px] leading-relaxed text-dim">{l.d}</p>
-            <div className="border-t border-white/[.07] pt-3.5 text-[12.5px] text-fainter">{l.metricLabel}</div>
-          </div>
+          <LeverCard key={l.t} l={l} />
         ))}
       </div>
     </section>
+  );
+}
+
+function LeverCard({ l }: { l: (typeof levers)[number] }) {
+  return (
+    <div className="flex h-full flex-col gap-3.5 rounded-[18px] border border-white/8 bg-surface p-7 transition-colors hover:border-accent/35 hover:bg-surface-hover">
+      <div className="flex items-start justify-between gap-3.5">
+        <div className="pt-[5px] text-[10.5px] font-bold tracking-[.14em] text-accent">{l.tag}</div>
+        <div className="font-display text-2xl font-bold tracking-[-.03em] text-fg">{l.metric}</div>
+      </div>
+      <h3 className="text-[19px] leading-tight tracking-[-.02em]">{l.t}</h3>
+      <p className="flex-1 text-[14.5px] leading-relaxed text-dim">{l.d}</p>
+      <div className="border-t border-white/[.07] pt-3.5 text-[12.5px] text-fainter">{l.metricLabel}</div>
+    </div>
   );
 }

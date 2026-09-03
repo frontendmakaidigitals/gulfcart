@@ -17,7 +17,7 @@ export default function CheckoutShowcase() {
   return (
     <section className="shell px-[26px] pb-22">
       <div className="grid overflow-hidden rounded-[22px] border border-outline/20 bg-surface lg:grid-cols-2">
-        <div className="p-12">
+        <div className="p-6 lg:p-12">
           <div className="eyebrow">THE CHECKOUT ITSELF</div>
           <h2 className="mt-4 text-[30px] leading-tight tracking-[-.03em] text-fg sm:text-4xl">Fewer fields. Fewer excuses to leave.</h2>
           <p className="mt-4 text-base leading-relaxed text-muted">
@@ -43,7 +43,7 @@ export default function CheckoutShowcase() {
           </div>
         </div>
 
-        <div className="flex items-center border-t border-outline/20 bg-[radial-gradient(520px_340px_at_70%_25%,color-mix(in_srgb,var(--accent)_12%,transparent),transparent_70%)] p-12 lg:border-t-0 lg:border-l">
+        <div className="flex items-center border-t border-outline/20 bg-[radial-gradient(520px_340px_at_70%_25%,color-mix(in_srgb,var(--accent)_12%,transparent),transparent_70%)] p-3 lg:p-12 lg:border-t-0 lg:border-l">
           <div className="w-full overflow-hidden rounded-2xl border border-outline/25 bg-ink-alt shadow-[0_24px_60px_rgba(0,0,0,.5)] dark:shadow-[0_24px_60px_rgba(0,0,0,.5)] shadow-black/10">
             <div className="flex items-center justify-between border-b border-outline/20 px-[18px] py-3.5">
               <span className="font-display text-[13px] font-semibold text-fg-soft">Your brand · Checkout</span>

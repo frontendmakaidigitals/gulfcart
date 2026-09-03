@@ -3,7 +3,7 @@ import { networkPoints, networkStats } from '@/lib/content';
 export default function BuyerNetwork() {
   return (
     <section id="network" className="shell scroll-mt-24 px-[26px] pb-22">
-      <div className="rounded-[22px] border border-accent/20 bg-surface bg-linear-150 from-accent/[.09] to-transparent to-60% p-12">
+      <div className="rounded-[22px] border border-accent/20 bg-surface bg-linear-150 from-accent/[.09] to-transparent to-60% p-6 lg:p-12">
         <div className="grid items-center gap-13 lg:grid-cols-2">
           <div>
             <div className="eyebrow">THE UNFAIR ADVANTAGE</div>

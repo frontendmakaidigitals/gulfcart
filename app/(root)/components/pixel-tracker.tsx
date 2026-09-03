@@ -1,10 +1,10 @@
 'use client';
 
+import { Suspense, useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
 import { trackPageView } from '@/lib/fbq';
 
-export default function PixelRouteTracker() {
+function PixelRouteTrackerInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -13,4 +13,12 @@ export default function PixelRouteTracker() {
   }, [pathname, searchParams]);
 
   return null;
+}
+
+export default function PixelRouteTracker() {
+  return (
+    <Suspense fallback={null}>
+      <PixelRouteTrackerInner />
+    </Suspense>
+  );
 }

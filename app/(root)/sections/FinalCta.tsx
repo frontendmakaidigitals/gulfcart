@@ -14,9 +14,7 @@ export default function FinalCta() {
             We&apos;ll walk your live checkout, point at where buyers drop, and show what the same traffic is worth once
             those steps are gone.
           </p>
-          <div className="mt-5.5 flex flex-wrap gap-5 text-sm text-dim">
-            <span>No credit card</span><span>·</span><span>60 days free</span><span>·</span><span>Reply within 1 business day</span>
-          </div>
+
         </div>
 
         <div className="flex min-w-[250px] flex-col gap-[11px]">

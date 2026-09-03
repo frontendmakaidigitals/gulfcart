@@ -38,7 +38,7 @@ export default function LeadForm() {
   return (
     <div
       id="form"
-      className="relative overflow-hidden rounded-[20px] border border-accent/25 bg-linear-to-b from-surface-raised to-surface shadow-[0_30px_70px_rgba(0,0,0,.55)] dark:shadow-[0_30px_70px_rgba(0,0,0,.55)] shadow-black/10 scroll-mt-24 lg:sticky lg:top-23"
+      className="relative items-start overflow-hidden rounded-[20px] border border-accent/25 bg-linear-to-b from-surface-raised to-surface shadow-[0_30px_70px_rgba(0,0,0,.55)] dark:shadow-[0_30px_70px_rgba(0,0,0,.55)] shadow-black/10 "
     >
       <Confetti
         ref={confettiRef}
@@ -117,7 +117,7 @@ export default function LeadForm() {
             </button>
 
             <div className="mt-0.5 flex justify-center gap-3.5 text-[11.5px] text-ghost">
-              <span>No credit card</span><span>·</span><span>Reply in 1 business day</span><span>·</span><span>Details never resold</span>
+              <span>Reply in 1 business day</span><span>·</span><span>Details never resold</span>
             </div>
           </form>
         )}

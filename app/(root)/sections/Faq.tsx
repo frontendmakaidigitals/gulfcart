@@ -7,7 +7,7 @@ import { faqs } from '@/lib/content';
 const INITIAL_COUNT = 4;
 
 export default function Faq() {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(-1);
   const [showAll, setShowAll] = useState(false);
 
   const visibleFaqs = showAll ? faqs : faqs.slice(0, INITIAL_COUNT);
