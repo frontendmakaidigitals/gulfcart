@@ -80,11 +80,11 @@ export default function LeadForm() {
 
             <div className="grid grid-cols-1 gap-[13px] sm:grid-cols-2">
               <label className="flex flex-col gap-1.5">
-                <span className="text-xs font-semibold text-dim">email</span>
+                <span className="text-xs font-semibold text-dim">Email</span>
                 <input name="email" required type="email" placeholder="you@brand.com" className="field" />
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className="text-xs font-semibold text-dim">number</span>
+                <span className="text-xs font-semibold text-dim">Phone number</span>
                 <input name="phone" required placeholder="+971 50 000 0000" className="field" />
               </label>
             </div>
