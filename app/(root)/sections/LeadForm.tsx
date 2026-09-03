@@ -15,7 +15,7 @@ export default function LeadForm() {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget).entries());
     try {
-      const res = await fetch('/api/leads', {
+      const res = await fetch('/api/email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...data, mode: 'call' }),
@@ -80,11 +80,11 @@ export default function LeadForm() {
 
             <div className="grid grid-cols-1 gap-[13px] sm:grid-cols-2">
               <label className="flex flex-col gap-1.5">
-                <span className="text-xs font-semibold text-dim">Work email</span>
+                <span className="text-xs font-semibold text-dim">email</span>
                 <input name="email" required type="email" placeholder="you@brand.com" className="field" />
               </label>
               <label className="flex flex-col gap-1.5">
-                <span className="text-xs font-semibold text-dim">WhatsApp number</span>
+                <span className="text-xs font-semibold text-dim">number</span>
                 <input name="phone" required placeholder="+971 50 000 0000" className="field" />
               </label>
             </div>

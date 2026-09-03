@@ -49,7 +49,7 @@ function LeverCard({ l }: { l: (typeof levers)[number] }) {
     <div className="flex h-full flex-col gap-3.5 rounded-[18px] border border-white/8 bg-surface p-7 transition-colors hover:border-accent/35 hover:bg-surface-hover">
       <div className="flex items-start justify-between gap-3.5">
         <div className="pt-[5px] text-[10.5px] font-bold tracking-[.14em] text-accent">{l.tag}</div>
-        <div className="font-display text-2xl font-bold tracking-[-.03em] text-fg">{l.metric}</div>
+
       </div>
       <h3 className="text-[19px] leading-tight tracking-[-.02em]">{l.t}</h3>
       <p className="flex-1 text-[14.5px] leading-relaxed text-dim">{l.d}</p>
