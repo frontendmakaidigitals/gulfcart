@@ -11,7 +11,7 @@ export default function BookADemoPage() {
                 e.origin === 'https://calendly.com' &&
                 e.data?.event === 'calendly.event_scheduled'
             ) {
-                trackBookDemo('page'); // fires 'Schedule' — actual booking confirmed
+                trackBookDemo('form');
             }
         }
 
