@@ -11,7 +11,24 @@ import PixelRouteTracker from './(root)/components/pixel-tracker';
 
 const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-space-grotesk' });
 const body = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-manrope' });
-
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://gulfcart.ae/#organization",
+    name: "GulfCart",
+    url: "https://gulfcart.ae/",
+    logo: "https://gulfcart.ae/logo.png",
+    description:
+      "GulfCart is a full-stack GCC commerce platform for Shopify brands, providing localized checkout, payments, currencies, shipping, country-level commerce rules, buyer identity, and conversion tools to help brands sell across all six GCC markets from one Shopify store.",
+    areaServed: [
+      "United Arab Emirates",
+      "Saudi Arabia",
+      "Kuwait",
+      "Qatar",
+      "Bahrain",
+      "Oman",
+    ],
+  };
 export const metadata: Metadata = {
   title: 'GulfCart — Checkout growth platform for Shopify brands in the Gulf',
   description:
@@ -37,6 +54,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fbq('track', 'PageView');
           `}
         </Script>
+
+        <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
 
         <meta name="google-site-verification" content="I8eKilxAfbdVS9RZWiThEdy1AKj_XDXJ5EdMdRAzfCo" />
 
