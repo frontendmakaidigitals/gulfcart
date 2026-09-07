@@ -300,7 +300,7 @@ export const plans = [
     name: 'Starter',
     base: 149,
     rate: '+ 1.2% of GMV',
-    band: 'Up to AED 100K/mo',
+
     cta: 'Book a demo',
     popular: false,
     features: [
@@ -315,7 +315,6 @@ export const plans = [
     name: 'Growth',
     base: 249,
     rate: '+ 0.9% of GMV',
-    band: 'AED 100K – 500K/mo',
     cta: 'Book a demo',
     popular: true,
     features: [
@@ -331,7 +330,7 @@ export const plans = [
     name: 'Enterprise',
     base: null,
     rate: '+ negotiated GMV rate',
-    band: 'AED 500K+/mo',
+
     cta: 'Talk to us',
     popular: false,
     features: [

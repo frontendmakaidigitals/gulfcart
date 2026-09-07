@@ -68,7 +68,6 @@ function PlanCard({ p }: { p: (typeof plans)[number] }) {
           {p.base === null ? 'Custom' : `$${p.base}/mo`}
         </div>
         <div className="mt-1.5 text-[13.5px] text-dim">{p.rate}</div>
-        <div className="mt-0.5 text-[13px] text-fainter">{p.band}</div>
       </div>
       <Link
         href="#form"

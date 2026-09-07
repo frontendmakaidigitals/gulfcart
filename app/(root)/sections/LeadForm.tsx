@@ -73,10 +73,24 @@ export default function LeadForm() {
           </div>
         ) : (
           <form onSubmit={onSubmit} className="flex flex-col gap-[13px]">
-            <label className="flex flex-col gap-1.5">
-              <span className="text-xs font-semibold text-dim">Full name</span>
-              <input name="name" required placeholder="Your name" className="field" />
-            </label>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-[13px]'>
+              <label className="flex flex-col gap-1.5">
+                <span className="text-xs font-semibold text-dim">Full name</span>
+                <input name="name" required placeholder="Your name" className="field" />
+              </label>
+
+              <label className="flex flex-col gap-1.5">
+                <span className="text-xs font-semibold text-dim">Website</span>
+                <input
+                  name="website"
+                  required
+                  placeholder="yourstore.com"
+                  pattern="^(https?:\/\/)?([\da-zA-Z-]+\.)+[a-zA-Z]{2,}(\/[^\s]*)?$"
+                  title="Enter a valid domain, e.g. yourstore.com (https:// optional)"
+                  className="field"
+                />
+              </label>
+            </div>
 
             <div className="grid grid-cols-1 gap-[13px] sm:grid-cols-2">
               <label className="flex flex-col gap-1.5">
