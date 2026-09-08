@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-
+import PricingCalculator from "./pricing-calculator";
 
 interface CalculatorOverlayProps {
   isOpen: boolean;
@@ -58,7 +58,7 @@ const CalculatorOverlay = ({ isOpen, onClose }: CalculatorOverlayProps) => {
           </svg>
         </button>
 
-        
+        <PricingCalculator />
       </div>
     </div>
   );
