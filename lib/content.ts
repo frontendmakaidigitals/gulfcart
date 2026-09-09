@@ -305,10 +305,12 @@ export const plans = [
     popular: false,
     features: [
       'Branded checkout',
+      'True local currency checkout',
       'OTP login and COD fee rules',
-      'Tabby, Tamara and cards',
-      '7-day onboarding',
-      'Email support',
+      'Abandoned cart capture',
+      'One-tap buyer network',
+      'Dynamic couponing',
+      '+ 1.2% of GMV'
     ],
   },
   {
@@ -319,11 +321,12 @@ export const plans = [
     popular: true,
     features: [
       'Everything in Starter',
-      'One-tap buyer network',
-      'True local currency checkout',
+      'GulfPass — tracks browse, cart and checkout abandonment, recovers automatically via WhatsApp',
       'Funnel analytics dashboard',
-      'WhatsApp support',
+      'Funnel analytics dashboard',
       'Arabic checkout UI',
+      'WhatsApp support',
+      "+ 0.9% of GMV"
     ],
   },
   {
