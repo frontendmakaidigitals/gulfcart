@@ -135,7 +135,7 @@ function PlanCard({
         <div className="font-display text-[38px] font-bold tracking-[-.035em] text-fg">
           {displayPrice === null ? 'Custom' : `$${displayPrice}/mo`}
         </div>
-        <div className="mt-1.5 text-[13.5px] text-dim">{p.rate}</div>
+      
         {isAnnual && pricing && (
           <div className="mt-1 text-[12px] text-dim">
             Billed ${pricing.annualTotal}/yr
