@@ -323,7 +323,6 @@ export const plans = [
       'Everything in Starter',
       'GulfPass — tracks browse, cart and checkout abandonment, recovers automatically via WhatsApp',
       'Funnel analytics dashboard',
-      'Funnel analytics dashboard',
       'Arabic checkout UI',
       'WhatsApp support',
       "+ 0.9% of GMV"
