@@ -23,14 +23,12 @@ export default function LeadForm() {
       if (!res.ok) throw new Error('Request failed');
       setSent(true);
       trackFormSubmit();
-
       confettiRef.current?.fire({
         particleCount: 120,
         spread: 90,
         origin: { y: 0.6 },
       });
     } catch {
-      // TODO: surface an inline error state to the user instead of silently failing
       alert("Something went wrong — please try again or reach us directly.");
     }
   }

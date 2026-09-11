@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import Script from 'next/script';
-import { trackBookDemo } from '@/lib/fbq';
+import { trackFormSubmit } from '@/lib/fbq';
 
 export default function BookADemoPage() {
     useEffect(() => {
@@ -11,7 +11,7 @@ export default function BookADemoPage() {
                 e.origin === 'https://calendly.com' &&
                 e.data?.event === 'calendly.event_scheduled'
             ) {
-                trackBookDemo('form');
+                trackFormSubmit();
             }
         }
 
