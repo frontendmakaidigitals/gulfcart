@@ -298,7 +298,7 @@ export const quotes = [
 export const plans = [
   {
     name: 'Starter',
-    base: 149,
+    base: 79,
     rate: '+ 1.2% of GMV',
 
     cta: 'Book a demo',
@@ -315,7 +315,7 @@ export const plans = [
   },
   {
     name: 'Growth',
-    base: 249,
+    base: 149,
     rate: '+ 0.9% of GMV',
     cta: 'Book a demo',
     popular: true,
