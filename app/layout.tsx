@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Space_Grotesk, Manrope } from 'next/font/google';
 import './globals.css';
 import BackToTop from '@/components/ui/to-top';
-import TopBar from './(root)/header/TopBar';
+
 import Nav from './(root)/header/Nav';
 import Script from 'next/script';
 import Image from 'next/image';
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <PixelRouteTracker />
-        
+
         <Nav />
         {children}
         <Footer />
